@@ -49,7 +49,7 @@ sample_data = pandas.read_excel(
     nrows=96)
 
 all_libs = sorted(set(sample_data.to_dict()['Library ID'].values()))
-# all_libs = all_libs[1:5] # to subset
+# all_libs = all_libs[0:4] # to subset
 
 all_sample_nos = [int(x.split('-')[1]) for x in all_libs]
 
@@ -144,7 +144,3 @@ rule d2_filter_and_trim:
         bioconductor
     script:
         'src/d2_filter_and_trim.R'
-    # shell:
-    #     'zcat {input.r1} | head ; '
-    #     'zcat {input.r2} | head '
-        
